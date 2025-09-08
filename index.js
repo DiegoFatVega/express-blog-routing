@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
-const  port = 3000;
+const port = 3000;
+
 
 app.listen(port, () => {
-    console.log(`app listening on port https://localhost:${port}`);
+    console.log(`app listening on port http://localhost:${port}`);
 })
 
 
@@ -13,11 +14,16 @@ app.post(`/api/create`, (req, res) => {
 })
 
 //(R)ead
-app.get(`/api/read/:id`,(req, res) => {
-    res.send(`reading something...`);
+app.get(`/api/read/:id`, (req, res) => {
+    res.send(`reading something... `);
 })
 
 //(U)pdate
-app.patch(`/api/patch/:id`, (req, res) => {
+app.patch(`/api/patch/:id`, (req, res) => { //or PUT verb
     res.send(`patching something...`);
+})
+
+//(D)elete
+app.delete(`/api/delete/:id`, (req, res) => {
+    res.send(`deleting something...`);
 })
