@@ -7,3 +7,17 @@ app.listen(port, () => {
 })
 
 
+//(c)reate
+app.post(`/api/create`, (req, res) => {
+    res.send(`create something...`);
+})
+
+//(R)ead
+app.get(`/api/read/:id`,(req, res) => {
+    res.send(`reading something...`);
+})
+
+//(U)pdate
+app.patch(`/api/patch/:id`, (req, res) => {
+    res.send(`patching something...`);
+})
