@@ -9,21 +9,21 @@ app.listen(port, () => {
 
 
 //(c)reate
-app.post(`/api/create`, (req, res) => {
+app.post(`/api/post`, (req, res) => {
     res.send(`create something...`);
 })
 
 //(R)ead
-app.get(`/api/read/:id`, (req, res) => {
+app.get(`/api/post/:id`, (req, res) => {
     res.send(`reading something... `);
 })
 
 //(U)pdate
-app.patch(`/api/patch/:id`, (req, res) => { //or PUT verb
+app.patch(`/api/post/:id`, (req, res) => { //or PUT verb
     res.send(`patching something...`);
 })
 
 //(D)elete
-app.delete(`/api/delete/:id`, (req, res) => {
+app.delete(`/api/post/:id`, (req, res) => {
     res.send(`deleting something...`);
 })
