@@ -9,4 +9,6 @@ app.listen(port, () => {
     console.log(`app listening on port http://localhost:${port}`);
 })
 
+app.use(express.static(`public`));
+
 app.use(`/posts`, postsRouter);
