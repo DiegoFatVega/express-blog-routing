@@ -85,9 +85,10 @@ router.delete(`/:id`, (req, res) => {
       error: `Post not found`
     })
   } else {
-    posts.slice(post_id)
+    posts.splice(post_id, 1)
     res.status(200).json({
-      message: `Post eliminated correctly`
+       message: `Post eliminated correctly`,
+       posts,
     })
   }
 })
