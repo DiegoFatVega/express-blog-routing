@@ -1,7 +1,7 @@
 const express = require(`express`)
 const router = express.Router();
 
- let posts = [
+let posts = [
   {
     id: 1,
     title: "Ciambellone soffice della nonna",
@@ -41,42 +41,55 @@ const router = express.Router();
 
 //(R)Index
 router.get(`/`, (req, res) => {
-    //res.send(`Welcome to my Blog!`)
-    res.json(posts);
+  //res.send(`Welcome to my Blog!`)
+  res.json(posts);
 })
 
 //(c)reate
 router.post(`/`, (req, res) => {
-    res.send(`create something...`);
+  res.send(`create something...`);
 })
 
 //(R)ead or Show
 router.get(`/:id`, (req, res) => {
-    //res.send(`reading post with ID:` + req.params.id);
-    const post_id = req.params.id;
-    const post = posts.find((post) => post.id == post_id);
+  //res.send(`reading post with ID:` + req.params.id);
+  const post_id = req.params.id;
+  const post = posts.find((post) => post.id == post_id);
 
-    if(!post){
-        res.json({
-            error:`post not found`
-        })
-    }else{
-        res.json(post);
-    }
+  if (!post) {
+    res.status(404).json({
+      error: `Post not found`
+    })
+  } else {
+    res.json(post);
+  }
 })
 
 //(U)pdate
 router.patch(`/:id`, (req, res) => { //or PUT verb
-    res.send(`patching post with ID:` + req.params.id);
+  res.send(`patching post with ID:` + req.params.id);
 })
 //(U)PUT
 router.put(`/:id`, (req, res) => {
-    res.send(`pushing post with ID:` + req.params.id);
+  res.send(`pushing post with ID:` + req.params.id);
 })
 
 //(D)elete
 router.delete(`/:id`, (req, res) => {
-    res.send(`deleting post with ID:` + req.params.id);
+  //res.send(`deleting post with ID:` + req.params.id);
+  const post_id = req.params.id;
+  const post = posts.find((post) => post.id == post_id)
+
+  if (!post) {
+    res.status(404).json({
+      error: `Post not found`
+    })
+  } else {
+    posts.slice(post_id)
+    res.status(200).json({
+      message: `Post eliminated correctly`
+    })
+  }
 })
 
 module.exports = router;
