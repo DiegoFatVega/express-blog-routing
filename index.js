@@ -4,7 +4,6 @@ const port = 3000;
 
 const postsRouter = require(`./routes/posts`)
 
-
 app.listen(port, () => {
     console.log(`app listening on port http://localhost:${port}`);
 })
