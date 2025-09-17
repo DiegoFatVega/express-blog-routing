@@ -4,8 +4,6 @@ const router = express.Router();
 //import posts controller
 const postController = require(`../controller.js/postController`);
 
-//(R)Index
-router.get(`/`, postController.index)
 
 //(c)reate
 router.post(`/`, postController.store)
